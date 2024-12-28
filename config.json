@@ -1,0 +1,10 @@
+{
+    "captcha":{
+        "apikey":"",
+        "service":"capmonster" 
+    },
+    "proxy":{
+        "ipandport":"",
+        "type":""
+    }
+}

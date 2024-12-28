@@ -1,0 +1,6 @@
+requests
+tls_client
+ctypes
+colorama
+bs4
+colorist
