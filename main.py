@@ -22,7 +22,7 @@ def get_time_rn():
 
 class Console:
     def title():
-        while Stats.working:
+        while True:
             payload = {
                 "clientKey":apikey
             }
