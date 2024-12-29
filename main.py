@@ -27,7 +27,7 @@ class Console:
                 "clientKey":apikey
             }
             proxies = {
-                "http":f"{proxytype}{proxy}",
+                f"{proxytype}":f"{proxytype}{proxy}",
             }
             current_time = time.time()
             elapsed_time = current_time - Stats.start
@@ -141,7 +141,7 @@ def getVerifyCode(token):
 
 def register():
     s.proxies = {
-        "http":f"{proxytype}{proxy}",
+        f"{proxytype}":f"{proxytype}{proxy}",
     }
     res = requests.get('https://api.tempmail.lol/generate')
     if res.status_code != 200:
