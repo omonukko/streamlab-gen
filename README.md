@@ -7,3 +7,4 @@ Then you can start it with
 ```
 python main.py
 ```
+![image](/image.png)
