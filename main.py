@@ -12,6 +12,12 @@ service = json.load(open("config.json"))["captcha"]["service"]
 proxy = json.load(open('config.json'))["proxy"]["ipandport"]
 proxytype = json.load(open("config.json"))["proxy"]["type"]
 
+def Service():
+    if service == "capmonster":
+        return "https://api.capmonste.cloud"
+    elif service == "capsolver":
+        return "https://api.capsolver.com"
+
 def get_time_rn():
     date = datetime.datetime.now()
     hour = date.hour
@@ -41,7 +47,8 @@ class Console:
             elapsed_hours = int((elapsed_time % 86400) // 3600)
             elapsed_minutes = int((elapsed_time % 3600) // 60)
             elapsed_seconds = int(elapsed_time % 60)
-            balance = requests.post('https://api.capmonster.cloud/getBalance',json=payload,proxies=proxies).json().get("balance")
+            ser = Service()
+            balance = requests.post(f'{ser}/getBalance',json=payload,proxies=proxies).json().get("balance")
             ctypes.windll.kernel32.SetConsoleTitleW(
                 f'Created:{Stats.created} ~~~ Error:{Stats.error} ~~~ Solved:{Stats.solved} ~~~ Balance:{balance}$ ~~~ Success Rate:{success_rate}% ~~~ '+
                 f'Elapsed:{elapsed_days}d/{elapsed_hours}h/{elapsed_minutes}m/{elapsed_seconds}s'
